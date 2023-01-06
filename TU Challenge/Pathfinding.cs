@@ -72,21 +72,20 @@ namespace TU_Challenge
             Path p = new Path(start);
             /*if (isAtDestination)
             {
-                Console.WriteLine(destination);
                 Vector2 par = destination;
-                *//*while(par != start)
+                while (par != start)
                 {
                     par = parent[par.X, par.Y];
                     solution.Add(par);
-                }*//*
+                }
                 solution.Reverse();
                 foreach (Vector2 v in solution)
                 {
                     p = new Path(p, v);
                 }
             }*/
-            
-            
+
+
             return p;
         }
 
@@ -107,7 +106,7 @@ namespace TU_Challenge
                 for (int j = -1; j <= 1; j++)
                 {
                     Vector2 neighboor = vector2 + new Vector2(i, j);
-                    if (!IsOutOfBound(neighboor) && !(i == 0 && j == 0) && _grid[i,j] == 'X')
+                    if (!IsOutOfBound(neighboor) && !(i == 0 && j == 0) && _grid[neighboor.X, neighboor.Y] != 'X')
                     {
                         neighboors.Add(neighboor);
                     }
