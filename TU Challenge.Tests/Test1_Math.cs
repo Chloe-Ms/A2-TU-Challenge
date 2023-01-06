@@ -144,7 +144,7 @@ namespace TU_Challenge
         [TestCase(20, 20, 0)]
         public void IsInOrder(int a, int b, int expected)
         {
-            var result = MyMathImplementation.IsInOrder(a, b);
+            int result = MyMathImplementation.IsInOrder(a, b);
             Assert.That(result, Is.EqualTo(expected));
         }
 
