@@ -47,9 +47,11 @@ namespace TU_Challenge
             List <Vector2> exclude = new List<Vector2>();
             Queue <Vector2> queue = new Queue<Vector2>();
             queue.Enqueue(start);
+            exclude.Add(start);
             Vector2 position;
             bool isAtDestination = false;
             List<Vector2> solution = new List<Vector2>();
+
             while (queue.Count > 0 && !isAtDestination)
             {
                 position = queue.Dequeue();
@@ -61,16 +63,19 @@ namespace TU_Challenge
                 {
                     foreach (Vector2 neighboor in GetNeighboors(position, exclude))
                     {
-                        if (!queue.Contains(position))
+                        if (!exclude.Contains(neighboor))
                         {
+                            exclude.Add(neighboor);
                             parent[neighboor.X, neighboor.Y] = position;
                             queue.Enqueue(neighboor);
+                            
                         }
                     }
                 }
+                
             }
             Path p = new Path(start);
-            /*if (isAtDestination)
+            if (isAtDestination)
             {
                 Vector2 par = destination;
                 while (par != start)
@@ -83,7 +88,7 @@ namespace TU_Challenge
                 {
                     p = new Path(p, v);
                 }
-            }*/
+            }
 
 
             return p;
