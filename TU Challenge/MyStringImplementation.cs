@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -136,9 +137,9 @@ namespace TU_Challenge
         }
         public static string Voyelles(string a)
         {
-            a = ToLowerCase(a);
+            string lowercase = ToLowerCase(a);
             List<char> list = new List<char>();
-            foreach(char c in a)
+            foreach(char c in lowercase)
             {
                 if (IsAVowel(c) && !list.Contains(c))
                 {

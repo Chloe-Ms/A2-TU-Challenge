@@ -27,19 +27,20 @@ namespace TU_Challenge
 
         public static List<int> GenericSort(List<int> toSort, Func<int, int, int> isInOrder)
         {
-            while (!IsGenericListInOrder(toSort, isInOrder))
+            List<int> res = new List<int>(toSort);
+            while (!IsGenericListInOrder(res, isInOrder))
             {
-                for (int i = 0; i < toSort.Count - 1; i++)
+                for (int i = 0; i < res.Count - 1; i++)
                 {
-                    if (isInOrder(toSort[i], toSort[i + 1]) == -1)
+                    if (isInOrder(res[i], res[i + 1]) == -1)
                     {
-                        int temp = toSort[i];
-                        toSort[i] = toSort[i + 1];
-                        toSort[i + 1] = temp;
+                        int temp = res[i];
+                        res[i] = res[i + 1];
+                        res[i + 1] = temp;
                     }
                 }
             }
-            return toSort;
+            return res;
         }
 
         public static List<int> GetAllPrimary(int a)
@@ -146,19 +147,21 @@ namespace TU_Challenge
 
         public static List<int> Sort(List<int> toSort)
         {
-            while (!IsListInOrder(toSort))
+            List<int> res = new List<int>(toSort);
+            while (!IsListInOrder(res))
             {
-                for (int i = 0;i < toSort.Count - 1;i++)
+                for (int i = 0;i < res.Count - 1;i++)
                 {
-                    if(IsInOrder(toSort[i], toSort[i + 1]) == -1)
+                    if(IsInOrder(res[i], res[i + 1]) == -1)
                     {
-                        int temp = toSort[i];
-                        toSort[i] = toSort[i + 1];
-                        toSort[i + 1] = temp;
+                        int temp = res[i];
+                        res[i] = res[i + 1];
+                        res[i + 1] = temp;
                     }
                 }
             }
-            return toSort;
+            return res;
+
         }
     }
 }
